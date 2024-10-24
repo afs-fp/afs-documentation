@@ -4,7 +4,8 @@ const isProd = process.env.NODE_ENV === 'production'
 const repoName = 'afs-documentation'
 
 const nextConfig: NextConfig = {
-  basePath: isProd ? `/${repoName}` : '',
+  //basePath: isProd ? `/${repoName}` : '',
+  basePath: '/afs-documentation',
   output: 'export', // <=== enables static exports
   reactStrictMode: true,
   images: { unoptimized: true },
