@@ -1,16 +1,20 @@
-'use client'
 import Image from 'next/image'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
+  const [imageSrc, setImageSrc] = useState('/afs-logo.png')
+
   useEffect(() => {
     console.log('Environment:', process.env.NODE_ENV)
+    if (process.env.NODE_ENV === 'production') {
+      setImageSrc('/afs-documentation/afs-logo.png')
+    }
   }, [])
 
   return (
     <div className="flex flex-col items-center justify-center text-center">
       <Image
-        src="/afs-logo.png"
+        src={imageSrc}
         alt="AFS Logo"
         width={150}
         height={150}
