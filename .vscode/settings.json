@@ -1,0 +1,14 @@
+{
+    "editor.formatOnSave": true,
+    // Optional: Only format with Prettier if a Prettier config file is found in the project
+    "prettier.requireConfig": true,
+    // Optional: Enable for specific languages
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // Add more languages as needed
+  }
+  
