@@ -76,20 +76,37 @@ export function AppSidebar() {
                 {/* Non-Collapsible Sub-Group for 'Design' */}
                 <SidebarMenuItem>
                   <SidebarMenuButton asChild>
-                    <div className="flex justify-between px-4 py-2 ">
-                      Design
-                      <ChevronDown className="opacity-0" />
-                    </div>
+                    <Link href="/design#design" passHref>
+                      <p className="px-4 py-2">Design</p>
+                    </Link>
                   </SidebarMenuButton>
                   <SidebarMenuSub>
                     <SidebarMenuSubItem>
                       <SidebarMenuSubButton asChild>
-                        <div className="px-4 py-2">Update Cad Template</div>
+                        <Link href="/design#introduction" passHref>
+                          <p className="px-4 py-2">Introduction</p>
+                        </Link>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                     <SidebarMenuSubItem>
                       <SidebarMenuSubButton asChild>
-                        <div className="px-4 py-2">Create Project Folder</div>
+                        <Link href="/design#layout" passHref>
+                          <p className="px-4 py-2">Layout</p>
+                        </Link>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <Link href="/design#requirements" passHref>
+                          <p className="px-4 py-2">Requirements</p>
+                        </Link>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <Link href="/design#documentation" passHref>
+                          <p className="px-4 py-2">Documentation</p>
+                        </Link>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                   </SidebarMenuSub>
