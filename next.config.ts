@@ -5,7 +5,7 @@ const repoName = 'afs-documentation'
 
 const nextConfig: NextConfig = {
   //basePath: isProd ? `/${repoName}` : '',
-  basePath: '/afs-documentation',
+  basePath: '',
   output: 'export', // <=== enables static exports
   reactStrictMode: true,
   images: { unoptimized: true },
