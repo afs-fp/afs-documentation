@@ -1,3 +1,4 @@
+'use client'
 // pages/design.tsx
 import {
   Carousel,
@@ -13,6 +14,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 
+import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import { FaFolder } from 'react-icons/fa' // Import the folder icon
 import { FaFile } from 'react-icons/fa'
@@ -26,24 +28,31 @@ interface CardData {
 }
 
 const Design: NextPage = () => {
+  const [baseURL, setBaseURL] = useState('')
+
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'production') {
+      setBaseURL('/afs-documentation')
+    }
+  }, [])
   const DownloadSurveyCardsData: CardData[] = [
     {
-      gifUrl: '/gifs/download-survey/open-procore.gif',
+      gifUrl: `${baseURL}/gifs/download-survey/open-procore.gif`,
       number: '01',
       title: 'Step 1: Open Procore',
     },
     {
-      gifUrl: '/gifs/download-survey/select-job.gif',
+      gifUrl: `${baseURL}/gifs/download-survey/select-job.gif`,
       number: '02',
       title: 'Step 2: Select Job',
     },
     {
-      gifUrl: '/gifs/download-survey/find-survey.gif',
+      gifUrl: `${baseURL}/gifs/download-survey/find-survey.gif`,
       number: '03',
       title: 'Step 3: Find Survey In Documents',
     },
     {
-      gifUrl: '/gifs/download-survey/download-to-xref.gif',
+      gifUrl: `${baseURL}/gifs/download-survey/download-to-xref.gif`,
       number: '04',
       title: 'Step 4: Download To X-Ref Folder',
     },
@@ -51,17 +60,17 @@ const Design: NextPage = () => {
 
   const DownloadCadCardsData: CardData[] = [
     {
-      gifUrl: '/gifs/download-survey/open-procore.gif',
+      gifUrl: `${baseURL}/gifs/download-survey/open-procore.gif`,
       number: '01',
       title: 'Step 1: Open Procore',
     },
     {
-      gifUrl: '/gifs/download-survey/select-job.gif',
+      gifUrl: `${baseURL}/gifs/download-survey/select-job.gif`,
       number: '02',
       title: 'Step 2: Select Job',
     },
     {
-      gifUrl: '/gifs/download-cad/download-contract-cad.gif',
+      gifUrl: `${baseURL}/gifs/download-cad/download-contract-cad.gif`,
       number: '03',
       title: 'Step 3: Download Relevant Cad',
     },
