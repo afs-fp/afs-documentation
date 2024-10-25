@@ -13,7 +13,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="flex flex-col items-center justify-center text-center">
+    <div className="w-full flex flex-col items-center justify-center text-center">
       <Image
         src={imageSrc}
         alt="AFS Logo"
@@ -24,9 +24,7 @@ export default function Home() {
       <h1 className="mt-6 text-3xl font-bold text-blue-600">
         AFS Employee Training Portal
       </h1>
-      <p className="mt-4 text-lg text-gray-700">
-        Explore our resources to help you grow and succeed in your role
-      </p>
+      <p className="mt-4 text-lg text-gray-700">Explore our resources</p>
     </div>
   )
 }
