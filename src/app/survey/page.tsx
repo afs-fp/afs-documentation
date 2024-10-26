@@ -8,7 +8,7 @@ const Survey: NextPage = () => {
   return (
     <div className="flex flex-col items-center w-full">
       <div className="p-8">
-        <main className={`shadow rounded-lg p-6`}>
+        <main className={` rounded-lg p-6`}>
           <h1 className="text-4xl font-bold border-b pb-2">Survey Phase</h1>
           <p className="italic">
             (You can skip this step if you can find or have access to the
