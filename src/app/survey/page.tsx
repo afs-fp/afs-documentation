@@ -1,28 +1,30 @@
 // pages/survey.tsx
 import type { NextPage } from 'next'
+import { FaFolder } from 'react-icons/fa'
+import { FaFilePdf } from 'react-icons/fa6'
 
 const Survey: NextPage = () => {
   // This variable represents the multiplier for tailwind's spacing scale
   const indentAmount = 16 // Assuming 16 corresponds to 'pl-16' in Tailwind
 
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="flex w-full flex-col items-center">
       <div className="p-8">
-        <main className={` rounded-lg p-6`}>
-          <h1 className="text-4xl font-bold border-b pb-2">Survey Phase</h1>
+        <main className={`rounded-lg p-6`}>
+          <h1 className="border-b pb-2 text-4xl font-bold">Survey Phase</h1>
           <p className="italic">
             (You can skip this step if you can find or have access to the
             existing sprinkler plans)
           </p>
 
-          <h2 id="preparation" className="text-2xl font-semibold mt-8 border-b">
+          <h2 id="preparation" className="mt-8 border-b text-2xl font-semibold">
             Preparation
           </h2>
 
-          <div className="mt-4 bg-slate-900 px-2 py-1 rounded-lg">
-            <h3 className="font-semibold mt-1">Call the GC’s Superintendent</h3>
+          <div className="mt-4 rounded-lg bg-slate-900 px-2 py-1">
+            <h3 className="mt-1 font-semibold">Call the GC’s Superintendent</h3>
             <p>From this phone call we want 4 pieces of information:</p>
-            <ul className="list-decimal ml-10 bg-slate-900 w-fit px-8 py-2 rounded-lg">
+            <ul className="ml-10 w-fit list-decimal rounded-lg bg-slate-900 px-8 py-2">
               <li>Is the job ready to be surveyed?</li>
               <li>What are site hours?</li>
               <li>
@@ -38,17 +40,17 @@ const Survey: NextPage = () => {
 
           <h2
             id="how-to-survey"
-            className="text-2xl font-semibold mt-8 border-b"
+            className="mt-8 border-b text-2xl font-semibold"
           >
             How To Survey
           </h2>
-          <div className="mt-4 bg-slate-900 px-2 py-1 rounded-lg">
-            <h3 className="font-semibold mt-1">
+          <div className="mt-4 rounded-lg bg-slate-900 px-2 py-1">
+            <h3 className="mt-1 font-semibold">
               Show up to the job at the specified time, with your iPad and PPE
             </h3>
-            <div className="flex flex-wrap pl-20 mt-2 space-x-8">
+            <div className="mt-2 flex flex-wrap space-x-8 pl-20">
               <div>
-                <p className="font-semibold text-sm text-slate-400">Minimum:</p>
+                <p className="text-sm font-semibold text-slate-400">Minimum:</p>
                 <ul className="list-disc pl-4 text-slate-300">
                   <li>Pants</li>
                   <li>Boots</li>
@@ -56,7 +58,7 @@ const Survey: NextPage = () => {
                 </ul>
               </div>
               <div>
-                <p className="font-semibold text-sm text-slate-400">
+                <p className="text-sm font-semibold text-slate-400">
                   Optional:
                 </p>
                 <ul className="list-disc pl-4 text-slate-300">
@@ -67,10 +69,10 @@ const Survey: NextPage = () => {
               </div>
             </div>
 
-            <h3 className="font-semibold mt-4">
+            <h3 className="mt-4 font-semibold">
               On Procore find the Demolition Drawing, open it in BlueBeam
             </h3>
-            <h3 className="font-semibold mt-4">
+            <h3 className="mt-4 font-semibold">
               With the Demolition Drawing open on BlueBeam, Draw in the existing
               system
             </h3>
@@ -93,8 +95,8 @@ const Survey: NextPage = () => {
               </li>
             </ul>
 
-            <h3 className="font-semibold mt-4">Take lots of pictures</h3>
-            <h3 className="font-semibold mt-4">
+            <h3 className="mt-4 font-semibold">Take lots of pictures</h3>
+            <h3 className="mt-4 font-semibold">
               Upload your survey and pictures to Procore
             </h3>
             <ul className={`list-disc ${'pl-' + indentAmount}`}>
@@ -102,7 +104,42 @@ const Survey: NextPage = () => {
                 Survey goes in Sprinkler/Working Files for Engineer/For
                 Reference
               </li>
-              <li>Create a “Survey” album for your survey images</li>
+
+              <ul className="mt-2 list-none">
+                <li className="mb-0 flex items-center">
+                  {' '}
+                  {/* No left padding for root folder */}
+                  <FaFolder className="mr-2 text-lg text-yellow-500" />{' '}
+                  Sprinkler
+                </li>
+                <ul className="list-none pl-8">
+                  {' '}
+                  {/* Increased left padding for subfolders */}
+                  <li className="flex items-center">
+                    <FaFolder className="mr-2 text-yellow-500" /> Working Files
+                    for Engineer
+                  </li>
+                  <ul className="list-none pl-8">
+                    {' '}
+                    {/* Increased left padding for subfolders */}
+                    <li className="flex items-center">
+                      <FaFolder className="mr-2 text-yellow-500" /> For
+                      Reference
+                    </li>
+                    <ul className="list-none pl-8">
+                      {' '}
+                      {/* Increased left padding for subfolders */}
+                      <li className="flex items-center">
+                        <FaFilePdf className="mr-2 text-blue-500" /> Survey
+                      </li>
+                    </ul>
+                  </ul>
+                </ul>
+              </ul>
+
+              <li className="mt-2">
+                Create a “Survey” album for your survey images
+              </li>
               <li>
                 If the job has multiple Levels, or Zones - Create a separate
                 album for each

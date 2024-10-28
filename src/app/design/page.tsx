@@ -19,12 +19,21 @@ import type { NextPage } from 'next'
 import { FaFolder } from 'react-icons/fa' // Import the folder icon
 import { FaFile } from 'react-icons/fa'
 import { FaFilePdf } from 'react-icons/fa6'
-import CarouselCard from './CarouselCard'
+import CarouselCard from '@/components/CarouselCard'
+import Image from 'next/image'
+import CarouselCardNotes from '@/components/CarouselCardNotes'
 
 interface CardData {
   gifUrl: string
   number: string
   title: string
+}
+
+interface CardData2 {
+  gifUrl: string
+  number: string
+  title: string
+  description: string
 }
 
 const Design: NextPage = () => {
@@ -76,6 +85,163 @@ const Design: NextPage = () => {
     },
   ]
 
+  const ImportExistingSystem: CardData[] = [
+    {
+      gifUrl: `${baseURL}/img/design/switch-to-model.png`,
+      number: '01',
+      title: 'Step 1: Switch to model space',
+    },
+    {
+      gifUrl: `${baseURL}/img/design/insert-pdf.png`,
+      number: '02',
+      title: 'Step 2: Insert PDF Underlay',
+    },
+    {
+      gifUrl: `${baseURL}/img/design/find-pdf.png`,
+      number: '03',
+      title: 'Step 3: Find and open the PDF you downloaded from procore',
+    },
+    {
+      gifUrl: `${baseURL}/img/design/default-settings.png`,
+      number: '04',
+      title: 'Step 4: Use these defautl settings and click Ok',
+    },
+    {
+      gifUrl: `${baseURL}/img/design/click-insert.png`,
+      number: '05',
+      title: 'Step 5: Specify location and insert',
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/scale-pdf.gif`,
+      number: '06',
+      title:
+        'Step 6: Scale the PDF. Use the SC (scale) command with the number 96',
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/move-pdf.gif`,
+      number: '07',
+      title: 'Step 7: Move the PDF (MOVE command) to its final location',
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/fade-pdf.gif`,
+      number: '08',
+      title: 'Step 8: Fade the PDF',
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/lock-pdf.gif`,
+      number: '09',
+      title: 'Step 9: Lock the PDF',
+    },
+  ]
+
+  const DrawExistingSystemCardsData: CardData2[] = [
+    {
+      gifUrl: `${baseURL}/gifs/design/trace-main.gif`,
+      number: '01',
+      title: 'Use "RM" to trace the mains',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/trace-lines.gif`,
+      number: '02',
+      title: 'Use "RL" to trace the lines',
+      description: `
+        - "Click" at every head to create a point in the line.
+        - If you need to change direction: Type "C" and hit "ENTER".
+        - If heads are in-line, click to the other head and delete extra lines.
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/add-heads.gif`,
+      number: '03',
+      title: 'Insert Sprinklers/Outlets',
+      description: `
+        - Use "SSP" to select a sprinkler head to insert.
+        - Use "IS" to start inserting that head.
+        - Refer to the CAD Reference for sprinkler head symbols.
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/break-main.gif`,
+      number: '04',
+      title: 'Use RL to break the main if needed',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/qb.gif`,
+      number: '05',
+      title: 'Use QB to add line continuations',
+      description: `
+        - Use the QB command to continue lines for complex routing.
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/qc.gif`,
+      number: '06',
+      title: 'Use QC to add line caps',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/design/size-pipe.png`,
+      number: '07',
+      title: 'Add sizes to all of your pipe',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/hat.gif`,
+      number: '08',
+      title: 'use HAT to hide all pipe lengths',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/hidden.gif`,
+      number: '09',
+      title: 'Change all pipe to hidden',
+      description: `
+      - Select a pice of main
+      - Select a pice of line
+      - Run SELECTSIMILAR
+      - Change to "Hidden"
+      `,
+    },
+  ]
+
+  const ImportRCP: CardData2[] = [
+    {
+      gifUrl: `${baseURL}/img/design/rcp.png`,
+      number: '01',
+      title: 'Open the RCP you downloaded from Procore',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/design/ImportRCP/switch-model.png`,
+      number: '02',
+      title: 'Switch to model space',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/design/ImportRCP/select-model.png`,
+      number: '03',
+      title: 'Select Model',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/design/ImportRCP/paste-RCP.png`,
+      number: '04',
+      title: 'Paste the RCP',
+      description: `
+      `,
+    },
+  ]
+
   const renderCarousel = (data: CardData[]) => (
     <Carousel className="w-fit max-w-3xl">
       <CarouselContent>
@@ -94,10 +260,29 @@ const Design: NextPage = () => {
     </Carousel>
   )
 
+  const renderCarouselNotes = (data: CardData2[]) => (
+    <Carousel className="w-fit max-w-3xl">
+      <CarouselContent>
+        {data.map((card, index) => (
+          <CarouselItem key={index}>
+            <CarouselCardNotes
+              gifUrl={card.gifUrl}
+              number={card.number}
+              title={card.title}
+              description={card.description} // Pass description
+            />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  )
+
   const AccordionSection: React.FC<{ content: JSX.Element }> = ({
     content,
   }) => (
-    <div className="w-fit mt-0 ml-5 bg-slate-800 rounded-md px-16">
+    <div className="ml-5 mt-0 w-fit rounded-md bg-slate-800 px-16">
       <Accordion type="single" collapsible>
         <AccordionItem value="item-1">
           <AccordionTrigger>Example</AccordionTrigger>
@@ -108,55 +293,55 @@ const Design: NextPage = () => {
   )
 
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="flex w-full flex-col items-center">
       <div className="p-8">
-        <main className=" w-full rounded-lg p-6">
-          <h1 className="text-4xl font-bold border-b pb-2">Design Phase</h1>
+        <main className="w-full rounded-lg p-6">
+          <h1 className="border-b pb-2 text-4xl font-bold">Design Phase</h1>
           <p className="italic">
             Follow these steps carefully to integrate your designs with the
             existing system.
           </p>
 
           {/* START OF CREATE JOB FOLDER ======================================================*/}
-          <h2 id="job-folder" className="text-2xl font-semibold mt-8 border-b">
+          <h2 id="job-folder" className="mt-8 border-b text-2xl font-semibold">
             Create Job Folder
           </h2>
-          <div className="mt-4 pl-5 bg-slate-900 rounded-lg py-2">
+          <div className="mt-4 rounded-lg bg-slate-900 py-2 pl-5">
             <h3 className="font-semibold">
               Create a folder and name it the job name
             </h3>
-            <ul className="list-none w-fit mt-0 pl-5 bg-slate-900 rounded-md p-2 pr-4 ">
-              <li className="flex items-center mb-0">
+            <ul className="mt-0 w-fit list-none rounded-md bg-slate-900 p-2 pl-5 pr-4">
+              <li className="mb-0 flex items-center">
                 {' '}
                 {/* No left padding for root folder */}
-                <FaFolder className="text-yellow-500 mr-2 text-lg" /> Main Job
+                <FaFolder className="mr-2 text-lg text-yellow-500" /> Main Job
                 Folder
               </li>
             </ul>
-            <h3 className="font-semibold mt-2">
+            <h3 className="mt-2 font-semibold">
               Add folders within this job folder
             </h3>
-            <div className="pl-5 w-fit mt-0  bg-slate-900 rounded-lg p-2 pr-4 ">
+            <div className="mt-0 w-fit rounded-lg bg-slate-900 p-2 pl-5 pr-4">
               <p>The structure can vary based on personal preference</p>
               <p>A basic example would be something like:</p>
-              <ul className="list-none mt-2">
-                <li className="flex items-center mb-0">
+              <ul className="mt-2 list-none">
+                <li className="mb-0 flex items-center">
                   {' '}
                   {/* No left padding for root folder */}
-                  <FaFolder className="text-yellow-500 mr-2 text-lg" /> Main Job
+                  <FaFolder className="mr-2 text-lg text-yellow-500" /> Main Job
                   Folder
                 </li>
                 <ul className="list-none pl-8">
                   {' '}
                   {/* Increased left padding for subfolders */}
                   <li className="flex items-center">
-                    <FaFolder className="text-yellow-600 mr-2" /> Contract Cad
+                    <FaFolder className="mr-2 text-yellow-600" /> Contract Cad
                   </li>
                   <li className="flex items-center">
-                    <FaFolder className="text-yellow-600 mr-2" /> Product Data
+                    <FaFolder className="mr-2 text-yellow-600" /> Product Data
                   </li>
                   <li className="flex items-center">
-                    <FaFolder className="text-yellow-600 mr-2" /> X-Ref
+                    <FaFolder className="mr-2 text-yellow-600" /> X-Ref
                   </li>
                 </ul>
               </ul>
@@ -167,29 +352,29 @@ const Design: NextPage = () => {
           {/* START OF DOWNLOAD FILES ======================================================*/}
           <h2
             id="download-files"
-            className="text-2xl font-semibold mt-8 border-b"
+            className="mt-8 border-b text-2xl font-semibold"
           >
             Download Files From Procore
           </h2>
-          <div className="mt-4 pl-5 bg-slate-900 rounded-lg py-2 w-full">
-            <h3 className="font-semibold my-2">Download your survey</h3>
+          <div className="mt-4 w-full rounded-lg bg-slate-900 py-2 pl-5">
+            <h3 className="my-2 font-semibold">Download your survey</h3>
             <AccordionSection
               content={renderCarousel(DownloadSurveyCardsData)}
             />
-            <h3 className="font-semibold my-2">
+            <h3 className="my-2 font-semibold">
               Download Relevant Contract Cad
             </h3>
 
-            <ul className="list-none my-2 ml-5 w-fit bg-slate-900 rounded-md p-2 px-4">
-              <li className="flex items-center mb-0">
+            <ul className="my-2 ml-5 w-fit list-none rounded-md bg-slate-900 p-2 px-4">
+              <li className="mb-0 flex items-center">
                 {' '}
                 {/* No left padding for root folder */}
-                <FaFile className="text-blue-300 mr-2 text-lg" /> RCP.dwg
+                <FaFile className="mr-2 text-lg text-blue-300" /> RCP.dwg
               </li>
-              <li className="flex items-center mb-0">
+              <li className="mb-0 flex items-center">
                 {' '}
                 {/* No left padding for root folder */}
-                <FaFile className="text-blue-300 mr-2 text-lg" /> Mech.dwg
+                <FaFile className="mr-2 text-lg text-blue-300" /> Mech.dwg
               </li>
             </ul>
             <AccordionSection content={renderCarousel(DownloadCadCardsData)} />
@@ -197,43 +382,43 @@ const Design: NextPage = () => {
             <h3 className="mt-4 font-semibold">
               You should end up with something like this
             </h3>
-            <div className="ml-5 bg-slate-900 w-fit rounded-md p-2 px-4">
-              <ul className="list-none mt-0">
-                <li className="flex items-center mb-0">
+            <div className="ml-5 w-fit rounded-md bg-slate-900 p-2 px-4">
+              <ul className="mt-0 list-none">
+                <li className="mb-0 flex items-center">
                   {' '}
                   {/* No left padding for root folder */}
-                  <FaFolder className="text-yellow-500 mr-2 text-lg" /> Main Job
+                  <FaFolder className="mr-2 text-lg text-yellow-500" /> Main Job
                   Folder
                 </li>
                 <ul className="list-none pl-8">
                   {' '}
                   {/* Increased left padding for subfolders */}
                   <li className="flex items-center">
-                    <FaFolder className="text-yellow-600 mr-2" /> Contract Cad
+                    <FaFolder className="mr-2 text-yellow-600" /> Contract Cad
                   </li>
                   <ul className="list-none pl-8">
-                    <li className="flex items-center mb-0">
+                    <li className="mb-0 flex items-center">
                       {' '}
                       {/* No left padding for root folder */}
-                      <FaFile className="text-blue-300 mr-2 text-lg" /> RCP.dwg
+                      <FaFile className="mr-2 text-lg text-blue-300" /> RCP.dwg
                     </li>
-                    <li className="flex items-center mb-0">
+                    <li className="mb-0 flex items-center">
                       {' '}
                       {/* No left padding for root folder */}
-                      <FaFile className="text-blue-300 mr-2 text-lg" /> Mech.dwg
+                      <FaFile className="mr-2 text-lg text-blue-300" /> Mech.dwg
                     </li>
                   </ul>
                   <li className="flex items-center">
-                    <FaFolder className="text-yellow-600 mr-2" /> Product Data
+                    <FaFolder className="mr-2 text-yellow-600" /> Product Data
                   </li>
                   <li className="flex items-center">
-                    <FaFolder className="text-yellow-600 mr-2" /> X-Ref
+                    <FaFolder className="mr-2 text-yellow-600" /> X-Ref
                   </li>
                   <ul className="list-none pl-8">
-                    <li className="flex items-center mb-0">
+                    <li className="mb-0 flex items-center">
                       {' '}
                       {/* No left padding for root folder */}
-                      <FaFilePdf className="text-blue-300 mr-2 text-lg" />{' '}
+                      <FaFilePdf className="mr-2 text-lg text-blue-300" />{' '}
                       Survey.pdf
                     </li>
                   </ul>
@@ -243,33 +428,49 @@ const Design: NextPage = () => {
           </div>
           {/* END OF DOWNLOAD FILES ======================================================*/}
 
-          <h2 id="start-fp" className="text-2xl font-semibold mt-8 border-b">
+          <h2 id="start-fp" className="mt-8 border-b text-2xl font-semibold">
             Start New FP Drawing
           </h2>
-          <div className="mt-4 pl-5 bg-slate-900 rounded-lg py-2 w-full"></div>
+          <div className="mt-4 w-full rounded-lg bg-slate-900 py-2 pl-5">
+            <Image
+              src={`${baseURL}/img/design/start-fp.png`}
+              alt={`${baseURL}/img/initial-setup/download-template.png`}
+              width={800} // Set appropriate width
+              height={800} // Set appropriate height
+              className="rounded-lg"
+            />
+          </div>
 
           <h2
             id="import-existing"
-            className="text-2xl font-semibold mt-8 border-b"
+            className="mt-8 border-b text-2xl font-semibold"
           >
-            Import Existing System
+            Import Existing System Reference
           </h2>
-          <div className="mt-4 pl-5 bg-slate-900 rounded-lg py-2 w-full"></div>
+          <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
+            {renderCarousel(ImportExistingSystem)}
+          </div>
           <h2
             id="draw-existing"
-            className="text-2xl font-semibold mt-8 border-b"
+            className="mt-8 border-b text-2xl font-semibold"
           >
             Draw in the Existing System
           </h2>
-          <div className="mt-4 pl-5 bg-slate-900 rounded-lg py-2 w-full"></div>
-          <h2 id="import-rcp" className="text-2xl font-semibold mt-8 border-b">
+          <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
+            {renderCarouselNotes(DrawExistingSystemCardsData)}
+          </div>
+
+          <h2 id="import-rcp" className="mt-8 border-b text-2xl font-semibold">
             Import RCP
           </h2>
-          <div className="mt-4 pl-5 bg-slate-900 rounded-lg py-2 w-full"></div>
-          <h2 id="clean-rcp" className="text-2xl font-semibold mt-8 border-b">
+          <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
+            {renderCarouselNotes(ImportRCP)}
+          </div>
+          <div className="mt-4 w-full rounded-lg bg-slate-900 py-2 pl-5"></div>
+          <h2 id="clean-rcp" className="mt-8 border-b text-2xl font-semibold">
             Clean RCP
           </h2>
-          <div className="mt-4 pl-5 bg-slate-900 rounded-lg py-2 w-full"></div>
+          <div className="mt-4 w-full rounded-lg bg-slate-900 py-2 pl-5"></div>
         </main>
       </div>
     </div>

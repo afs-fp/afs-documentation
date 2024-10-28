@@ -28,7 +28,7 @@ const sidebarData = [
     subItems: [
       {
         title: 'Set Hydracad Template',
-        href: '/survey#survey',
+        href: '/set-hyd-template',
         subItems: [
           // { title: 'Preparation', href: '/survey#preparation' },
           // { title: 'How to Survey', href: '/survey#how-to-survey' },
@@ -87,6 +87,28 @@ const sidebarData = [
       },
     ],
   },
+  {
+    title: 'Reference',
+    href: '/new-project',
+    subItems: [
+      {
+        title: 'CAD',
+        href: '/reference/CAD',
+        subItems: [
+          // { title: 'Preparation', href: '/survey#preparation' },
+          // { title: 'How to Survey', href: '/survey#how-to-survey' },
+        ],
+      },
+      // {
+      //   title: 'Set Hydracad Toolbar',
+      //   href: '/survey#survey',
+      //   subItems: [
+      //     // { title: 'Preparation', href: '/survey#preparation' },
+      //     // { title: 'How to Survey', href: '/survey#how-to-survey' },
+      //   ],
+      // },
+    ],
+  },
 ]
 
 export function AppSidebar() {
@@ -96,7 +118,7 @@ export function AppSidebar() {
         <SidebarMenuItem>
           <SidebarMenuButton asChild>
             <Link href="/" passHref>
-              <p className="flex items-center pr-4 py-2 text-lg">Home</p>
+              <p className="flex items-center py-2 pr-4 text-lg">Home</p>
             </Link>
           </SidebarMenuButton>
         </SidebarMenuItem>
@@ -106,7 +128,7 @@ export function AppSidebar() {
           <Collapsible className="group/collapsible" key={item.title}>
             <SidebarGroup>
               <SidebarGroupLabel asChild>
-                <CollapsibleTrigger className="break-words ">
+                <CollapsibleTrigger className="break-words">
                   {item.title}
                   <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
                 </CollapsibleTrigger>
@@ -120,7 +142,7 @@ export function AppSidebar() {
                     >
                       <SidebarMenuButton asChild>
                         <Link href={subItem.href} passHref>
-                          <p className="px-4 py-1 break-words text-wrap h-fit">
+                          <p className="h-fit text-wrap break-words px-4 py-1">
                             {subItem.title}
                           </p>
                         </Link>
@@ -131,7 +153,7 @@ export function AppSidebar() {
                             <SidebarMenuSubItem key={subSubItem.title}>
                               <SidebarMenuSubButton asChild>
                                 <Link href={subSubItem.href} passHref>
-                                  <p className="px-4 py-1 break-words text-wrap text-neutral-300">
+                                  <p className="text-wrap break-words px-4 py-1 text-neutral-300">
                                     {subSubItem.title}
                                   </p>
                                 </Link>
