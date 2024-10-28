@@ -83,7 +83,14 @@ const sidebarData = [
           { title: 'Draw Existing System', href: '/design#draw-existing' },
           { title: 'Import RCP', href: '/design#import-rcp' },
           { title: 'Clean RCP', href: '/design#clean-rcp' },
+          { title: 'Copy Existing System', href: '/design#copy-existing' },
+          { title: 'Create Layout', href: '/design#create-layout' },
         ],
+      },
+      {
+        title: 'Paper Space',
+        href: '/paper-space',
+        subItems: [{ title: 'Create Job Folder', href: '/design#job-folder' }],
       },
     ],
   },
@@ -95,8 +102,9 @@ const sidebarData = [
         title: 'CAD',
         href: '/reference/CAD',
         subItems: [
-          // { title: 'Preparation', href: '/survey#preparation' },
-          // { title: 'How to Survey', href: '/survey#how-to-survey' },
+          { title: 'Head Symbols', href: '/reference/CAD#head-symbols' },
+          { title: 'Layer Colors', href: '/reference/CAD#layer-colors' },
+          { title: 'CAD Commands', href: '/reference/CAD#cad-commands' },
         ],
       },
       // {

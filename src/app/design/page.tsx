@@ -242,6 +242,116 @@ const Design: NextPage = () => {
     },
   ]
 
+  const CleanRCP: CardData2[] = [
+    {
+      gifUrl: `${baseURL}/gifs/design/cleanRCP/freeze.gif`,
+      number: '01',
+      title: 'Freeze irelevant infromation from the drawing',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/cleanRCP/by-layer.gif`,
+      number: '02',
+      title: 'Change the entire drawing to be ByLayer',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/cleanRCP/fix-color.gif`,
+      number: '03',
+      title: 'Go through and change every layer to be the correct color',
+      description: `
+      - Refer to Reference / CAD
+      - If an object wont change color, try using BURST on it
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/cleanRCP/lock-layers.gif`,
+      number: '04',
+      title: 'Lock the ceiling & hatch layer (or any others you prefer)',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/cleanRCP/replace-ceiling-tags.gif`,
+      number: '05',
+      title: 'Replace the ceiling tags with our own',
+      description: `
+      `,
+    },
+  ]
+
+  const CopySystem: CardData2[] = [
+    {
+      gifUrl: `${baseURL}/gifs/design/copy-system/group.gif`,
+      number: '01',
+      title: 'Optional: Group your existing system',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/copy-system/copy.gif`,
+      number: '02',
+      title: 'Copy your existing system to your RCP',
+      description: `
+      - Use a base point that is both on your survey and on the RCP
+      - Things like columns or doors are good options
+      `,
+    },
+  ]
+
+  const CreateLayout: CardData2[] = [
+    {
+      gifUrl: `${baseURL}/gifs/design/create-layout/sg.gif`,
+      number: '01',
+      title: 'Use SG to place heads center tile',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/create-layout/arm.gif`,
+      number: '02',
+      title: 'Conect heads to existing system with armovers',
+      description: `
+      - Draw a line from a new head to an existing outlet
+      - Switch this line to be on the layer SPRINKDAT4
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/create-layout/size.gif`,
+      number: '03',
+      title: 'Size your new pipe',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/create-layout/cleanup.gif`,
+      number: '04',
+      title: 'Run CLEANUP_SIZES',
+      description: `
+      - Right click to keep the origional location
+      - Left click to select new location
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/create-layout/pp.gif`,
+      number: '05',
+      title: 'Pretty Pipe your drawing',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/create-layout/gen.gif`,
+      number: '06',
+      title: 'Create general section',
+      description: `
+      - Copy from template
+      - Modify to match the information you got on your survey
+      `,
+    },
+  ]
+
   const renderCarousel = (data: CardData[]) => (
     <Carousel className="w-fit max-w-3xl">
       <CarouselContent>
@@ -466,11 +576,31 @@ const Design: NextPage = () => {
           <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
             {renderCarouselNotes(ImportRCP)}
           </div>
-          <div className="mt-4 w-full rounded-lg bg-slate-900 py-2 pl-5"></div>
           <h2 id="clean-rcp" className="mt-8 border-b text-2xl font-semibold">
             Clean RCP
           </h2>
-          <div className="mt-4 w-full rounded-lg bg-slate-900 py-2 pl-5"></div>
+          <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
+            {renderCarouselNotes(CleanRCP)}
+          </div>
+          <h2
+            id="copy-existing"
+            className="mt-8 border-b text-2xl font-semibold"
+          >
+            Copy Existing System to RCP
+          </h2>
+          <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
+            {renderCarouselNotes(CopySystem)}
+          </div>
+
+          <h2
+            id="create-layout"
+            className="mt-8 border-b text-2xl font-semibold"
+          >
+            Create Head Layout
+          </h2>
+          <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
+            {renderCarouselNotes(CreateLayout)}
+          </div>
         </main>
       </div>
     </div>

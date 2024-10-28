@@ -22,6 +22,39 @@ const headSymbols = [
   { fileName: 'Head14.png', headType: 'Dry Pendent' },
 ]
 
+const cadCommands = [
+  { command: 'RL', description: 'Rapid line' },
+  { command: 'RM', description: 'Rapid main' },
+  {
+    command: 'C + space',
+    description: 'Change direction of the rapid line or main',
+  },
+  { command: 'L', description: 'Lines' },
+  { command: 'PL', description: 'Polyline' },
+  { command: 'XREF', description: 'External reference' },
+  { command: 'X', description: 'Explode' },
+  { command: 'Burst', description: 'Not as extreme as explode' },
+  { command: 'QB', description: 'Continuation of pipe' },
+  { command: 'CD', description: 'Change diameter' },
+  { command: 'F', description: 'Filet - cleans up crossing lines' },
+  { command: 'DI', description: 'Distance measurement' },
+  { command: 'DIML', description: 'Dimension linear' },
+  { command: 'RN', description: 'Riser nipple' },
+  { command: 'T', description: 'Trim' },
+  { command: 'SHS', description: 'Head counts for selected area' },
+  { command: 'SXH', description: 'Change direction of cursor' },
+  { command: 'E', description: 'Erase' },
+  { command: 'Space bar', description: 'Enter' },
+  { command: 'HAT', description: 'Hide pipe lengths' },
+  { command: 'Filter', description: 'Change selection filters' },
+  { command: 'Select similar', description: 'Select all similar objects' },
+  { command: 'Area', description: 'Calculate area' },
+  { command: 'Hatch', description: 'Create filled block' },
+  { command: 'Roomtag', description: 'Room tagging' },
+  { command: 'PP', description: 'Pretty Pipe, enhances line visibility' },
+  { command: 'SC', description: 'Scale a PDF or other items' },
+]
+
 const CadReference: NextPage = () => {
   const [baseURL, setBaseURL] = useState('')
 
@@ -42,7 +75,6 @@ const CadReference: NextPage = () => {
             Follow these steps carefully to integrate your designs with the
             existing system.
           </p>
-
           {/* START OF Head Symbols Section ======================================================*/}
           <h2
             id="head-symbols"
@@ -72,7 +104,7 @@ const CadReference: NextPage = () => {
                     <td className="border border-gray-700 px-4 py-2">
                       {symbol.fileName.replace('.png', '')}
                     </td>
-                    <td className="border border-gray-700 px-4 py-2">
+                    <td className="flex justify-center border border-gray-700 px-4 py-2">
                       <div className="flex h-20 w-20 items-center justify-center">
                         <Image
                           src={`${baseURL}/img/reference/heads/${symbol.fileName}`}
@@ -89,7 +121,6 @@ const CadReference: NextPage = () => {
             </table>
           </div>
           {/* END OF Head Symbols Section ======================================================*/}
-
           <h2
             id="layer-colors"
             className="mt-8 border-b text-2xl font-semibold"
@@ -153,6 +184,46 @@ const CadReference: NextPage = () => {
                 </tr>
               </tbody>
             </table>
+          </div>
+          <h2
+            id="cad-commands"
+            className="mt-8 border-b text-2xl font-semibold"
+          >
+            CAD Commands
+          </h2>
+          <div className="mt-4 flex w-full justify-center overflow-hidden rounded-lg bg-slate-900 px-5 py-5">
+            <div className="w-full overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="">
+                  <tr>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+                    >
+                      Command
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+                    >
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {cadCommands.map((cmd, index) => (
+                    <tr key={index}>
+                      <td className="whitespace-nowrap px-6 py-4 text-sm font-medium">
+                        {cmd.command}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-4 text-sm">
+                        {cmd.description}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </main>
       </div>
