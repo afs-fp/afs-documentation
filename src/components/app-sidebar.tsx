@@ -90,7 +90,7 @@ const sidebarData = [
       {
         title: 'Paper Space',
         href: '/paper-space',
-        subItems: [{ title: 'Create Job Folder', href: '/design#job-folder' }],
+        subItems: [{ title: 'Pick Size', href: '/paper-space#pick-size' }],
       },
     ],
   },
