@@ -90,7 +90,30 @@ const sidebarData = [
       {
         title: 'Paper Space',
         href: '/paper-space',
-        subItems: [{ title: 'Pick Size', href: '/paper-space#pick-size' }],
+        subItems: [
+          { title: 'Pick Size', href: '/paper-space#pick-size' },
+          { title: 'Boilerplate', href: '/paper-space#boilerplate' },
+          {
+            title: 'Sprinkler Summary',
+            href: '/paper-space#head-box',
+          },
+          { title: 'Add Details', href: '/paper-space#add-details' },
+          { title: 'Add Key Plan', href: '/paper-space#add-keyplan' },
+        ],
+      },
+      {
+        title: 'Product Data',
+        href: '/pd',
+        subItems: [
+          { title: 'Pick Size', href: '/paper-space#pick-size' },
+          // { title: 'Boilerplate', href: '/paper-space#boilerplate' },
+          // {
+          //   title: 'Sprinkler Summary',
+          //   href: '/paper-space#head-box',
+          // },
+          // { title: 'Add Details', href: '/paper-space#add-details' },
+          // { title: 'Add Key Plan', href: '/paper-space#add-keyplan' },
+        ],
       },
     ],
   },

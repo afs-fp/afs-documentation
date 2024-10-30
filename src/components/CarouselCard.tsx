@@ -15,7 +15,11 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
   return (
     <div className="overflow-hidden rounded-lg shadow-lg">
       <div className="relative">
-        <img src={gifUrl} alt="Detail" className="h-full w-full object-cover" />
+        <img
+          src={gifUrl}
+          alt="Detail"
+          className="max-h-[85vh] w-full object-cover"
+        />
         <div className="absolute left-0 top-0 bg-neutral-900 bg-opacity-50 p-2 text-sm text-white">
           {number}
         </div>
