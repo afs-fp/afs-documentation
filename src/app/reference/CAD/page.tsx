@@ -9,7 +9,7 @@ const headSymbols = [
   { fileName: 'Head1.png', headType: 'Pendent' },
   { fileName: 'Head2.png', headType: 'Upright' },
   { fileName: 'Head2b.png', headType: 'Existing Upright' },
-  { fileName: 'Head3.png', headType: 'Existing Upright' },
+  { fileName: 'Head3.png', headType: 'Existing Pendent' },
   { fileName: 'Head4.png', headType: 'x' },
   { fileName: 'Head4b.png', headType: 'x' },
   { fileName: 'Head5b.png', headType: 'x' },

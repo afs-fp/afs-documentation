@@ -105,7 +105,25 @@ const sidebarData = [
         title: 'Product Data',
         href: '/pd',
         subItems: [
-          { title: 'Pick Size', href: '/paper-space#pick-size' },
+          { title: 'Copy Files', href: '/pd#copy-files' },
+          { title: 'Create Cover Page', href: '/pd#cover-page' },
+          { title: 'Add Sprinkler Heads', href: '/pd#add-heads' },
+          // { title: 'Boilerplate', href: '/paper-space#boilerplate' },
+          // {
+          //   title: 'Sprinkler Summary',
+          //   href: '/paper-space#head-box',
+          // },
+          // { title: 'Add Details', href: '/paper-space#add-details' },
+          // { title: 'Add Key Plan', href: '/paper-space#add-keyplan' },
+        ],
+      },
+      {
+        title: 'Upload For Review',
+        href: '/upload',
+        subItems: [
+          // { title: 'Copy Files', href: '/pd#copy-files' },
+          // { title: 'Create Cover Page', href: '/pd#cover-page' },
+          // { title: 'Add Sprinkler Heads', href: '/pd#add-heads' },
           // { title: 'Boilerplate', href: '/paper-space#boilerplate' },
           // {
           //   title: 'Sprinkler Summary',

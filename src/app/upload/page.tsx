@@ -18,7 +18,7 @@ interface CardData2 {
   description: string
 }
 
-const ProductData: NextPage = () => {
+const Upload: NextPage = () => {
   const [baseURL, setBaseURL] = useState('')
 
   useEffect(() => {
@@ -27,117 +27,30 @@ const ProductData: NextPage = () => {
     }
   }, [])
 
-  const CopyFiles: CardData2[] = [
+  const PrintDrawing: CardData2[] = [
     {
-      gifUrl: `${baseURL}/img/pd/cp/cp-1.png`,
+      gifUrl: `${baseURL}/img/upload/print/print-1.png`,
       number: '01',
       title: 'Step 1',
-      description: `
-      `,
-    },
-    {
-      gifUrl: `${baseURL}/img/pd/cp/cp-2.png`,
-      number: '02',
-      title: 'Step 2',
       description: `
       `,
     },
   ]
 
-  const CoverPage: CardData2[] = [
+  const UploadProcore: CardData2[] = [
     {
-      gifUrl: `${baseURL}/img/pd/cover/cover-1.png`,
+      gifUrl: `${baseURL}/img/upload/procore/upload-1.png`,
       number: '01',
       title: 'Step 1',
       description: `
-      `,
+        `,
     },
     {
-      gifUrl: `${baseURL}/img/pd/cover/cover-2.png`,
+      gifUrl: `${baseURL}/img/upload/procore/upload-2.png`,
       number: '02',
       title: 'Step 2',
       description: `
-      `,
-    },
-    {
-      gifUrl: `${baseURL}/img/pd/cover/cover-3.png`,
-      number: '03',
-      title: 'Step 3',
-      description: `
-      `,
-    },
-    {
-      gifUrl: `${baseURL}/img/pd/cover/cover-4.png`,
-      number: '04',
-      title: 'Step 4',
-      description: `
-      `,
-    },
-    {
-      gifUrl: `${baseURL}/img/pd/cover/cover-5.png`,
-      number: '05',
-      title: 'Step 5',
-      description: `
-      `,
-    },
-    {
-      gifUrl: `${baseURL}/img/pd/cover/cover-6.png`,
-      number: '06',
-      title: 'Step 6',
-      description: `
-      `,
-    },
-    {
-      gifUrl: `${baseURL}/img/pd/cover/cover-7.png`,
-      number: '07',
-      title: 'Step 7',
-      description: `
-      `,
-    },
-    {
-      gifUrl: `${baseURL}/img/pd/cover/cover-8.png`,
-      number: '08',
-      title: 'Step 8',
-      description: `
-      `,
-    },
-  ]
-
-  const Heads: CardData2[] = [
-    {
-      gifUrl: `${baseURL}/img/pd/heads/heads-1.png`,
-      number: '01',
-      title: 'Step 1',
-      description: `
-      `,
-    },
-    {
-      gifUrl: `${baseURL}/img/pd/heads/heads-2.png`,
-      number: '02',
-      title: 'Step 2',
-      description: `
-      `,
-    },
-    {
-      gifUrl: `${baseURL}/img/pd/heads/heads-3.png`,
-      number: '03',
-      title: 'Step 3',
-      description: `
-      `,
-    },
-    {
-      gifUrl: `${baseURL}/img/pd/heads/heads-4.png`,
-      number: '04',
-      title: 'Step 4',
-      description: `
-      `,
-    },
-    {
-      gifUrl: `${baseURL}/img/pd/heads/heads-5.png`,
-      number: '05',
-      title: 'Step 5',
-      description: `
-      `,
+          `,
     },
   ]
 
@@ -164,32 +77,34 @@ const ProductData: NextPage = () => {
     <div className="flex w-full flex-col items-center">
       <div className="p-8">
         <main className="rounded-lg p-6">
-          <h1 className="border-b pb-2 text-4xl font-bold">Product Data</h1>
+          <h1 className="border-b pb-2 text-4xl font-bold">
+            Upload For Review
+          </h1>
 
           <h2 id="copy-files" className="mt-8 border-b text-2xl font-semibold">
-            Copy Files
+            Print your drawing
           </h2>
           <div className="mt-4 rounded-lg bg-slate-900 px-2 py-1">
             <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
-              {renderCarousel(CopyFiles)}
+              {renderCarousel(PrintDrawing)}
             </div>
           </div>
 
           <h2 id="cover-page" className="mt-8 border-b text-2xl font-semibold">
-            Create Cover Page
+            Upload to Procore
           </h2>
           <div className="mt-4 rounded-lg bg-slate-900 px-2 py-1">
             <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
-              {renderCarousel(CoverPage)}
+              {renderCarousel(UploadProcore)}
             </div>
           </div>
 
-          <h2 id="add-heads" className="mt-8 border-b text-2xl font-semibold">
-            Add Head PD
+          <h2 id="cover-page" className="mt-8 border-b text-2xl font-semibold">
+            Update Excel
           </h2>
           <div className="mt-4 rounded-lg bg-slate-900 px-2 py-1">
             <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
-              {renderCarousel(Heads)}
+              {renderCarousel(UploadProcore)}
             </div>
           </div>
         </main>
@@ -198,4 +113,4 @@ const ProductData: NextPage = () => {
   )
 }
 
-export default ProductData
+export default Upload

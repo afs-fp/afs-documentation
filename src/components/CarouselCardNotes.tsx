@@ -21,7 +21,7 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
           alt="Detail"
           className="max-h-[70vh] max-w-full object-contain"
         />
-        <div className="absolute left-0 top-0 bg-neutral-900 bg-opacity-50 p-2 text-sm text-white">
+        <div className="absolute right-0 top-0 bg-neutral-900 bg-opacity-60 p-2 text-sm text-white">
           {number}
         </div>
       </div>
