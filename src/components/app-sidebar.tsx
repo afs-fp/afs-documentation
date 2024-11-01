@@ -28,7 +28,7 @@ const sidebarData = [
     subItems: [
       {
         title: 'Set Hydracad Template',
-        href: '/set-hyd-template',
+        href: '/initial-setup/set-hyd-template',
         subItems: [
           // { title: 'Preparation', href: '/survey#preparation' },
           // { title: 'How to Survey', href: '/survey#how-to-survey' },
@@ -36,28 +36,28 @@ const sidebarData = [
       },
       {
         title: 'Set Hydracad Toolbar',
-        href: '/survey#survey',
+        href: '/initial-setup/set-hyd-toolbar',
         subItems: [
           // { title: 'Preparation', href: '/survey#preparation' },
           // { title: 'How to Survey', href: '/survey#how-to-survey' },
         ],
       },
       {
-        title: 'Customize Hydracad Binds',
-        href: '/survey#survey',
+        title: 'Setup Sidebars',
+        href: '/initial-setup/setup-sidebar',
         subItems: [
           // { title: 'Preparation', href: '/survey#preparation' },
           // { title: 'How to Survey', href: '/survey#how-to-survey' },
         ],
       },
-      {
-        title: 'Reccomended Hydracad Settings',
-        href: '/survey#survey',
-        subItems: [
-          // { title: 'Preparation', href: '/survey#preparation' },
-          // { title: 'How to Survey', href: '/survey#how-to-survey' },
-        ],
-      },
+      // {
+      //   title: 'Reccomended Hydracad Settings',
+      //   href: '/survey#survey',
+      //   subItems: [
+      //     // { title: 'Preparation', href: '/survey#preparation' },
+      //     // { title: 'How to Survey', href: '/survey#how-to-survey' },
+      //   ],
+      // },
     ],
   },
   {
@@ -121,7 +121,10 @@ const sidebarData = [
         title: 'Upload For Review',
         href: '/upload',
         subItems: [
-          // { title: 'Copy Files', href: '/pd#copy-files' },
+          { title: 'Print Drawing', href: '/upload#print-drawing' },
+          { title: 'Upload to Procore', href: '/upload#upload-procore' },
+          { title: 'Update Excel', href: '/upload#update-excel' },
+          { title: 'Notify Manager', href: '/upload#notify-manager' },
           // { title: 'Create Cover Page', href: '/pd#cover-page' },
           // { title: 'Add Sprinkler Heads', href: '/pd#add-heads' },
           // { title: 'Boilerplate', href: '/paper-space#boilerplate' },
