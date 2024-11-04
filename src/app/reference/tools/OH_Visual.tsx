@@ -14,7 +14,7 @@ const OH_Visual: React.FC<RectangleProps> = ({ length1, length2 }) => {
   const rectangleStyle = {
     width: `${width}px`,
     height: `${height}px`,
-    position: 'relative' as 'relative',
+    position: 'relative' as const,  // Use `as const` for literal assertion
     border: '2px solid black',
     display: 'flex',
     justifyContent: 'center',
@@ -26,7 +26,7 @@ const OH_Visual: React.FC<RectangleProps> = ({ length1, length2 }) => {
     height: '20px',
     borderRadius: '50%',
     border: '2px solid black',
-    position: 'absolute' as 'absolute',
+    position: 'absolute' as const,  // Use `as const` for literal assertion
   };
 
   return (
