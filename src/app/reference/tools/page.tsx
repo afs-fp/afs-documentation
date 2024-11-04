@@ -1,6 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
+import OH_Visual from './OH_Visual'
+import { parseLength } from './parseLength';
 
 const CadReference: NextPage = () => {
   const [baseURL, setBaseURL] = useState('')
@@ -8,6 +10,7 @@ const CadReference: NextPage = () => {
   const [area, setArea] = useState(130) // Default area in square feet
   const [precision, setPrecision] = useState(2) // Default precision
   const [calculatedValue, setCalculatedValue] = useState<string | null>(null)
+  const [newLength, setNewLength] = useState<number | null>(null)
 
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
@@ -15,37 +18,30 @@ const CadReference: NextPage = () => {
     }
   }, [])
 
-  // Function to parse length input, ignoring non-numeric characters except for allowed delimiters
-  const parseLength = (input: string) => {
-    const sanitizedInput = input.replace(/[^\d\s'-]/g, '')
-    const regex = /^(\d+)\s*['\-\s]\s*(\d*)$/ 
-    const match = sanitizedInput.match(regex)
+  // Automatically calculate when length, area, or precision changes
+  useEffect(() => {
+    const handleCalculate = () => {
+      const totalLengthInInches = parseLength(length)
+      
+      if (totalLengthInInches !== null) {
+        const newLengthInInches = area * 144 / (4 * totalLengthInInches)
+        setNewLength(newLengthInInches)
+        const feet = Math.floor(newLengthInInches / 12)
+        const inches = (newLengthInInches % 12).toFixed(precision) // Use precision for decimal places
 
-    if (match) {
-      const feet = parseInt(match[1], 10) || 0
-      const inches = parseInt(match[2], 10) || 0
-      return feet * 12 + inches 
+        // Convert inches to a number to remove trailing zeros if any
+        const formattedInches = parseFloat(inches) 
+        const formattedLength = `${feet}' - ${formattedInches}"`
+        
+        setCalculatedValue(formattedLength)
+      } else {
+        setCalculatedValue(null)
+        setNewLength(null)
+      }
     }
-    return null
-  }
 
-  const handleCalculate = () => {
-    const totalLengthInInches = parseLength(length)
-    
-    if (totalLengthInInches !== null) {
-      const newLengthInInches = area * 144 / (4 * totalLengthInInches)
-      const feet = Math.floor(newLengthInInches / 12)
-      const inches = (newLengthInInches % 12).toFixed(precision) // Use precision for decimal places
-
-      // Convert inches to a number to remove trailing zeros if any
-      const formattedInches = parseFloat(inches) 
-      const formattedLength = `${feet}' - ${formattedInches}"`
-
-      setCalculatedValue(formattedLength)
-    } else {
-      setCalculatedValue(null)
-    }
-  }
+    handleCalculate()
+  }, [length, area, precision]) // Dependencies: recalculate on changes
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -96,19 +92,16 @@ const CadReference: NextPage = () => {
               className="mt-2 w-full rounded border p-2 text-black"
             />
           </div>
-          
-          <button
-            onClick={handleCalculate}
-            className="mt-4 rounded bg-blue-500 px-4 py-2 text-white"
-          >
-            Calculate
-          </button>
 
           {calculatedValue !== null && (
             <div className="mt-4 text-lg font-semibold">
               Calculated Value: {calculatedValue}
             </div>
           )}
+          {newLength !== null && length !== null && parseLength(length) !== null && 
+            <OH_Visual length1={newLength} length2={parseLength(length)!} />
+          }
+          
         </main>
       </div>
     </div>
