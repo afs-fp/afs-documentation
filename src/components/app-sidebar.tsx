@@ -151,6 +151,13 @@ const sidebarData = [
           { title: 'CAD Commands', href: '/reference/CAD#cad-commands' },
         ],
       },
+      {
+        title: 'Tools',
+        href: '/reference/tools',
+        subItems: [
+          { title: 'OH Spacing Helper', href: '/reference/tools#oh-helper' },
+        ],
+      },
       // {
       //   title: 'Set Hydracad Toolbar',
       //   href: '/survey#survey',
