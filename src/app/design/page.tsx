@@ -407,10 +407,6 @@ const Design: NextPage = () => {
       <div className="p-8">
         <main className="w-full rounded-lg p-6">
           <h1 className="border-b pb-2 text-4xl font-bold">Design Phase</h1>
-          <p className="italic">
-            Follow these steps carefully to integrate your designs with the
-            existing system.
-          </p>
 
           {/* START OF CREATE JOB FOLDER ======================================================*/}
           <h2 id="job-folder" className="mt-8 border-b text-2xl font-semibold">
@@ -418,7 +414,7 @@ const Design: NextPage = () => {
           </h2>
           <div className="mt-4 rounded-lg bg-slate-900 py-2 pl-5">
             <h3 className="font-semibold">
-              Create a folder and name it the job name
+              Create a folder on your computer and name it the job name
             </h3>
             <ul className="mt-0 w-fit list-none rounded-md bg-slate-900 p-2 pl-5 pr-4">
               <li className="mb-0 flex items-center">

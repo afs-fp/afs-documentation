@@ -32,6 +32,10 @@ const Survey: NextPage = () => {
               </li>
               <li>Is it a secure area? If it is:</li>
               <ul className="list-disc pl-8">
+                <li>
+                  Is there a list to get in? (If there is, inform the PM of date
+                  and time)
+                </li>
                 <li>How many forms of ID do I need?</li>
                 <li>Am I allowed to bring electronics?</li>
               </ul>
@@ -50,11 +54,15 @@ const Survey: NextPage = () => {
             </h3>
             <div className="mt-2 flex flex-wrap space-x-8 pl-20">
               <div>
-                <p className="text-sm font-semibold text-slate-400">Minimum:</p>
+                <p className="text-sm font-semibold text-slate-400">
+                  Required:
+                </p>
                 <ul className="list-disc pl-4 text-slate-300">
                   <li>Pants</li>
                   <li>Boots</li>
                   <li>Hardhat</li>
+                  <li>Eye protection</li>
+                  <li>Gloves</li>
                 </ul>
               </div>
               <div>
@@ -64,21 +72,38 @@ const Survey: NextPage = () => {
                 <ul className="list-disc pl-4 text-slate-300">
                   <li>Earplugs</li>
                   <li>Mask</li>
-                  <li>Gloves</li>
                 </ul>
               </div>
             </div>
 
+            <h3 className="mt-1 font-semibold">
+              Using you judgment, notify the site superintendent of your arrival
+            </h3>
+            <ul className="list-disc pl-8">
+              <li>
+                Relay any information from the superintendent to your manager
+              </li>
+              <li>
+                An example would be pipe flagged for relocation / demolition
+              </li>
+            </ul>
+
             <h3 className="mt-4 font-semibold">
-              On Procore find the Demolition Drawing, open it in BlueBeam
+              On Procore find the Drawing that most closely matches the current
+              field conditions, open it in BlueBeam
             </h3>
             <h3 className="mt-4 font-semibold">
               With the Demolition Drawing open on BlueBeam, Draw in the existing
               system
             </h3>
             <ul className={`list-decimal ${'pl-' + indentAmount}`}>
-              <li>Draw existing pipe (including pipe size)</li>
-              <li>Draw existing heads / outlets</li>
+              <li>
+                Draw existing pipe using the Line tool (including pipe size)
+              </li>
+              <li>
+                Draw existing heads / outlets (have a key to communicate
+                specific head type / SIN)
+              </li>
               <li>On the drawing, write down the:</li>
               <ul className={`list-disc ${'pl-' + indentAmount}`}>
                 <li>Deck Height & Deck Material</li>
@@ -86,18 +111,21 @@ const Survey: NextPage = () => {
                 <li>Bottom of Duct Height</li>
                 <li>Beam Heights (if present)</li>
               </ul>
-              <li>
-                Flange, Feed, Riser (pretty much get as much info as you can)
-              </li>
-              <li>
-                If you can, write information about the existing sprinkler heads
-                (SIN Number)
-              </li>
+              <li>Flange, Feed, Riser (gather as much info as you can)</li>
             </ul>
 
-            <h3 className="mt-4 font-semibold">Take lots of pictures</h3>
+            <h3 className="mt-4 font-semibold">Take photos of jobsite</h3>
+            <ul className={`list-disc ${'pl-' + indentAmount}`}>
+              <li className="mt-2">
+                Create a “Survey-DATE” album for your survey images
+              </li>
+              <li>
+                If the job has multiple Levels, or Zones - Create a separate
+                album for each
+              </li>
+            </ul>
             <h3 className="mt-4 font-semibold">
-              Upload your survey and pictures to Procore
+              Upload your survey to Procore
             </h3>
             <ul className={`list-disc ${'pl-' + indentAmount}`}>
               <li>
@@ -136,14 +164,6 @@ const Survey: NextPage = () => {
                   </ul>
                 </ul>
               </ul>
-
-              <li className="mt-2">
-                Create a “Survey” album for your survey images
-              </li>
-              <li>
-                If the job has multiple Levels, or Zones - Create a separate
-                album for each
-              </li>
             </ul>
           </div>
         </main>
