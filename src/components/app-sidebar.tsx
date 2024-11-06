@@ -50,6 +50,14 @@ const sidebarData = [
           // { title: 'How to Survey', href: '/survey#how-to-survey' },
         ],
       },
+      {
+        title: 'Download AutoCAD',
+        href: '/initial-setup/download-autocad',
+        subItems: [
+          // { title: 'Preparation', href: '/survey#preparation' },
+          // { title: 'How to Survey', href: '/survey#how-to-survey' },
+        ],
+      },
       // {
       //   title: 'Reccomended Hydracad Settings',
       //   href: '/survey#survey',
