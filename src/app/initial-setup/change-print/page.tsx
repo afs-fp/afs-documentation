@@ -19,7 +19,7 @@ interface CardData2 {
   description: string
 }
 
-const SetSidebar: NextPage = () => {
+const ChangePrint: NextPage = () => {
   const [baseURL, setBaseURL] = useState('')
 
   useEffect(() => {
@@ -30,27 +30,21 @@ const SetSidebar: NextPage = () => {
 
   const Layer: CardData2[] = [
     {
-      gifUrl: `${baseURL}/img/initial-setup/layer-sidebar/layer-1.png`,
+      gifUrl: `${baseURL}/img/initial-setup/change-print/p-1.png`,
       number: '01',
       title: 'Step 1',
       description: `
       `,
     },
     {
-      gifUrl: `${baseURL}/img/initial-setup/layer-sidebar/layer-2.png`,
+      gifUrl: `${baseURL}/img/initial-setup/change-print/p-2.png`,
       number: '02',
       title: 'Step 2',
       description: `
-        `,
+      `,
     },
-    {
-      gifUrl: `${baseURL}/img/initial-setup/layer-sidebar/layer-3.png`,
-      number: '03',
-      title: 'Step 3',
-      description: `
-        `,
-    },
-  ]
+];
+
 
   const renderCarousel = (data: CardData2[]) => (
     <Carousel className="h-fit w-fit max-w-3xl">
@@ -75,36 +69,16 @@ const SetSidebar: NextPage = () => {
     <div className="flex w-full flex-col items-center">
       <div className="p-8">
         <main className="rounded-lg p-6">
-          <h1 className="border-b pb-2 text-4xl font-bold">Setup Sidebars</h1>
+          <h1 className="border-b pb-2 text-4xl font-bold">Change Print</h1>
 
           <h2
             id="layer-properties"
             className="mt-8 border-b text-2xl font-semibold"
           >
-            Setup Layer Properties
+            Follow these steps to correct your printer config
           </h2>
           <div className="mt-4 rounded-lg bg-slate-900 px-2 py-1">
             {renderCarousel(Layer)}
-          </div>
-          <h2
-            id="layer-properties"
-            className="mt-8 border-b text-2xl font-semibold"
-          >
-            Setup Properties
-          </h2>
-          <div className="mt-4 rounded-lg bg-slate-900 px-2 py-1">
-            {/* {renderCarousel(Layer)} */}
-            <p>TODO: its different on a fresh autocad install, need to document on new employee</p>
-          </div>
-          <h2
-            id="layer-properties"
-            className="mt-8 border-b text-2xl font-semibold"
-          >
-            Setup External References
-          </h2>
-          <div className="mt-4 rounded-lg bg-slate-900 px-2 py-1">
-            {/* {renderCarousel(Layer)} */}
-            <p>TODO: its different on a fresh autocad install, need to document on new employee</p>
           </div>
         </main>
       </div>
@@ -112,4 +86,4 @@ const SetSidebar: NextPage = () => {
   )
 }
 
-export default SetSidebar
+export default ChangePrint
