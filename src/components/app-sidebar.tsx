@@ -51,6 +51,14 @@ const sidebarData = [
         ],
       },
       {
+        title: 'Change Ortho',
+        href: '/initial-setup/change-ortho',
+        subItems: [
+          // { title: 'Preparation', href: '/survey#preparation' },
+          // { title: 'How to Survey', href: '/survey#how-to-survey' },
+        ],
+      },
+      {
         title: 'Download AutoCAD',
         href: '/initial-setup/download-autocad',
         subItems: [
