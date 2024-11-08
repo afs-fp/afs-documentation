@@ -239,9 +239,12 @@ export function AppSidebar() {
                         </Link>
                       </SidebarMenuButton>
                       {subItem.subItems && (
-                        <SidebarMenuSub>
+                        <SidebarMenuSub className="border-l-0 pl-0">
                           {subItem.subItems.map((subSubItem) => (
-                            <SidebarMenuSubItem key={subSubItem.title}>
+                            <SidebarMenuSubItem
+                              key={subSubItem.title}
+                              className="border-l-0 pl-0"
+                            >
                               <SidebarMenuSubButton asChild>
                                 <Link href={subSubItem.href} passHref>
                                   <p className="text-wrap break-words px-4 py-1 text-neutral-300">
@@ -264,3 +267,4 @@ export function AppSidebar() {
     </Sidebar>
   )
 }
+
