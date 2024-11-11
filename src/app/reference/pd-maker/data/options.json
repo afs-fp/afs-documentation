@@ -1,0 +1,34 @@
+{
+    "sprinklerHeads": [
+      {
+        "name": "Concealed Pendent",
+        "model": "V3802",
+        "manufacturer": "Victaulic"
+      },
+      {
+        "name": "Semi Recessed Pendent",
+        "model": "V2708",
+        "manufacturer": "Victaulic"
+      },
+      { "name": "Upright", "model": "V2704", "manufacturer": "Victaulic" }
+    ],
+    "pipeFittings": [
+      {
+        "name": "Schedule 40/10 Pipe",
+        "model": "ASTM A53/A135",
+        "manufacturer": "Wheatland"
+      },
+      {
+        "name": "Threaded Fittings (Ductile Iron)",
+        "model": "Varies",
+        "manufacturer": "Tyco"
+      },
+      { "name": "Mechanical Tee", "model": "922", "manufacturer": "Victaulic" }
+    ],
+    "hangers": [
+      { "name": "Ring Hanger", "model": "115", "manufacturer": "Erico" },
+      { "name": "Drop-In Anchor", "model": "HDI+", "manufacturer": "Hilti" },
+      { "name": "Powder Driven", "model": "W10", "manufacturer": "Hilti" }
+    ]
+  }
+  
