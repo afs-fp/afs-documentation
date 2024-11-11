@@ -83,9 +83,11 @@ const Survey: NextPage = () => {
               <li>
                 Relay any information from the superintendent to your manager
               </li>
-              <li>
-                An example would be pipe flagged for relocation / demolition
-              </li>
+              <ul className="list-disc pl-8">
+                <li>
+                  An example would be pipe flagged for relocation / demolition
+                </li>
+              </ul>
             </ul>
 
             <h3 className="mt-4 font-semibold">
