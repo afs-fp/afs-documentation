@@ -158,6 +158,51 @@ const Survey: NextPage = () => {
     },
   ]
 
+  const addImg: CardData2[] = [
+    {
+      gifUrl: `${baseURL}/img/survey/add-img/ai-1.png`,
+      number: '01',
+      title: 'Step 1',
+      description: `
+        `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/add-img/ai-2.png`,
+      number: '02',
+      title: 'Step 2',
+      description: `
+        `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/add-img/ai-3.png`,
+      number: '03',
+      title: 'Step 3',
+      description: `
+        `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/add-img/ai-4.png`,
+      number: '04',
+      title: 'Step 4',
+      description: `
+        `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/add-img/ai-5.png`,
+      number: '05',
+      title: 'Step 5',
+      description: `
+        `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/add-img/ai-6.png`,
+      number: '06',
+      title: 'Step 6',
+      description: `
+        `,
+    },
+  ]
+
   const renderCarousel = (data: CardData2[]) => (
     <Carousel className="h-fit w-fit max-w-3xl">
       <CarouselContent>
@@ -349,6 +394,8 @@ const Survey: NextPage = () => {
                 album for each
               </li>
             </ul>
+            <div className="my-4"></div>
+            {renderCarousel(addImg)}
           </div>
         </main>
       </div>
