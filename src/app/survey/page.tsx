@@ -1,11 +1,181 @@
+'use client'
 // pages/survey.tsx
 import type { NextPage } from 'next'
 import { FaFolder } from 'react-icons/fa'
 import { FaFilePdf } from 'react-icons/fa6'
+import { useState, useEffect } from 'react'
+
+import CarouselCardNotes from '@/components/CarouselCardNotes'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from '@/components/ui/carousel'
+
+interface CardData2 {
+  gifUrl: string
+  number: string
+  title: string
+  description: string
+}
 
 const Survey: NextPage = () => {
   // This variable represents the multiplier for tailwind's spacing scale
   const indentAmount = 16 // Assuming 16 corresponds to 'pl-16' in Tailwind
+
+  const [baseURL, setBaseURL] = useState('')
+
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'production') {
+      setBaseURL('/afs-documentation')
+    }
+  }, [])
+
+  const OIB: CardData2[] = [
+    {
+      gifUrl: `${baseURL}/img/survey/oib/oib-1.png`,
+      number: '01',
+      title: 'Step 1',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/oib/oib-2.png`,
+      number: '02',
+      title: 'Step 2',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/oib/oib-3.png`,
+      number: '03',
+      title: 'Step 3',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/oib/oib-4.png`,
+      number: '04',
+      title: 'Step 4',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/oib/oib-5.png`,
+      number: '05',
+      title: 'Step 5',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/oib/oib-6.png`,
+      number: '06',
+      title: 'Step 6',
+      description: `
+      `,
+    },
+  ]
+
+  const ip: CardData2[] = [
+    {
+      gifUrl: `${baseURL}/img/survey/ipad/ip-2.png`,
+      number: '01',
+      title: 'Step 1',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/ipad/ip-3.png`,
+      number: '02',
+      title: 'Step 2',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/ipad/ip-4.png`,
+      number: '03',
+      title: 'Step 3',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/ipad/ip-5.png`,
+      number: '04',
+      title: 'Step 4',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/ipad/ip-6.png`,
+      number: '05',
+      title: 'Step 5',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/ipad/ip-7.png`,
+      number: '06',
+      title: 'Step 6',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/ipad/ip-8.png`,
+      number: '07',
+      title: 'Step 7',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/ipad/ip-9.png`,
+      number: '08',
+      title: 'Step 8',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/ipad/ip-10.png`,
+      number: '09',
+      title: 'Step 9',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/ipad/ip-11.png`,
+      number: '10',
+      title: 'Step 10',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/survey/ipad/ip-12.png`,
+      number: '11',
+      title: 'Step 11',
+      description: `
+      `,
+    },
+  ]
+
+  const renderCarousel = (data: CardData2[]) => (
+    <Carousel className="h-fit w-fit max-w-3xl">
+      <CarouselContent>
+        {data.map((card, index) => (
+          <CarouselItem key={index}>
+            <CarouselCardNotes
+              gifUrl={card.gifUrl}
+              number={card.number}
+              title={card.title}
+              description={card.description}
+            />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  )
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -89,11 +259,17 @@ const Survey: NextPage = () => {
                 </li>
               </ul>
             </ul>
+          </div>
 
-            <h3 className="mt-4 font-semibold">
+          <div className="mt-4 rounded-lg bg-slate-900 px-2 py-1">
+            <h3 className="mb-5 mt-4 text-lg font-semibold">
               On Procore find the Drawing that most closely matches the current
               field conditions, open it in BlueBeam
             </h3>
+            {renderCarousel(OIB)}
+          </div>
+
+          <div className="mt-4 rounded-lg bg-slate-900 px-2 py-1">
             <h3 className="mt-4 font-semibold">
               With the Demolition Drawing open on BlueBeam, Draw in the existing
               system
@@ -115,17 +291,9 @@ const Survey: NextPage = () => {
               </ul>
               <li>Flange, Feed, Riser (gather as much info as you can)</li>
             </ul>
+          </div>
 
-            <h3 className="mt-4 font-semibold">Take photos of jobsite</h3>
-            <ul className={`list-disc ${'pl-' + indentAmount}`}>
-              <li className="mt-2">
-                Create a “Survey-DATE” album for your survey images
-              </li>
-              <li>
-                If the job has multiple Levels, or Zones - Create a separate
-                album for each
-              </li>
-            </ul>
+          <div className="mt-4 rounded-lg bg-slate-900 px-2 py-1">
             <h3 className="mt-4 font-semibold">
               Upload your survey to Procore
             </h3>
@@ -166,6 +334,20 @@ const Survey: NextPage = () => {
                   </ul>
                 </ul>
               </ul>
+            </ul>
+            {renderCarousel(ip)}
+          </div>
+
+          <div className="mt-4 rounded-lg bg-slate-900 px-2 py-1">
+            <h3 className="mt-4 font-semibold">Take photos of jobsite</h3>
+            <ul className={`list-disc ${'pl-' + indentAmount}`}>
+              <li className="mt-2">
+                Create a “Survey-DATE” album for your survey images
+              </li>
+              <li>
+                If the job has multiple Levels, or Zones - Create a separate
+                album for each
+              </li>
             </ul>
           </div>
         </main>
