@@ -76,22 +76,60 @@ async function createCoverpage(formData: FormData, baseURL: string) {
 }
 
 async function createPD(formData: FormData, baseURL: string) {
-  // 1. Initialize a new PDF document to hold merged content
   const finalPdf = await PDFDocument.create()
 
-  const headPdfMapping: { [model: string]: string } = {
+  // Define individual and combined model mappings
+  const headPdfMapping: { [key: string]: string } = {
     V3802: `${baseURL}/assets/head-pd/V3802.pdf`,
     V2704: `${baseURL}/assets/head-pd/V2704.pdf`,
     V2708: `${baseURL}/assets/head-pd/V2708.pdf`,
-    // Add additional mappings as needed
     V3901: `${baseURL}/assets/head-pd/V3901.pdf`,
+    'V2704-V2708': `${baseURL}/assets/head-pd/V2704-V2708.pdf`,
+    // Additional combined PDFs can be added here in "Model1-Model2" format
   }
 
+  const headModels = formData.heads.map((head) => head.model)
+
+  // Check for combined PDFs dynamically
+  const processedModels = new Set<string>()
+  for (const key of Object.keys(headPdfMapping)) {
+    if (key.includes('-')) {
+      const combinedModels = key.split('-')
+      const hasAllModels = combinedModels.every((model) =>
+        headModels.includes(model)
+      )
+
+      if (hasAllModels) {
+        try {
+          const pdfBytes = await fetch(headPdfMapping[key]).then((res) =>
+            res.arrayBuffer()
+          )
+          const pdfDoc = await PDFDocument.load(pdfBytes)
+          const pages = await finalPdf.copyPages(
+            pdfDoc,
+            pdfDoc.getPageIndices()
+          )
+          pages.forEach((page) => finalPdf.addPage(page))
+
+          // Mark each model as processed
+          combinedModels.forEach((model) => processedModels.add(model))
+        } catch (error) {
+          console.error(
+            `Failed to load combined PDF for models ${combinedModels.join(' and ')}:`,
+            error
+          )
+        }
+      }
+    }
+  }
+
+  // Add remaining individual PDFs
   for (const head of formData.heads) {
-    const pdfPath = headPdfMapping[head.model]
-    if (pdfPath) {
+    if (!processedModels.has(head.model) && headPdfMapping[head.model]) {
       try {
-        const pdfBytes = await fetch(pdfPath).then((res) => res.arrayBuffer())
+        const pdfBytes = await fetch(headPdfMapping[head.model]).then((res) =>
+          res.arrayBuffer()
+        )
         const pdfDoc = await PDFDocument.load(pdfBytes)
         const pages = await finalPdf.copyPages(pdfDoc, pdfDoc.getPageIndices())
         pages.forEach((page) => finalPdf.addPage(page))
@@ -100,6 +138,7 @@ async function createPD(formData: FormData, baseURL: string) {
       }
     }
   }
+
   const pdfBytes = await finalPdf.save()
   const blob = new Blob([pdfBytes], { type: 'application/pdf' })
   const link = document.createElement('a')

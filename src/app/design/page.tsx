@@ -135,8 +135,9 @@ const Design: NextPage = () => {
       title: 'Step 7: Verify that the scale is correct',
       description: `
       - compare measurments between the survey and the RCP
-      - use something like columns and measure the distance between them
-      - verify that the distance is the same
+      - use something like columns and measure the distance between them (idealy two very remote points)
+      - verify that the distance is the same'
+      - IF the distance isnt correct. Do the math and scale it to be be correct
       `,
     },
     {
