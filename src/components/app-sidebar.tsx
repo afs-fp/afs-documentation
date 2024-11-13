@@ -111,10 +111,10 @@ const sidebarData = [
           { title: 'Create Job Folder', href: '/design#job-folder' },
           { title: 'Download Files', href: '/design#download-files' },
           { title: 'Start FP Drawing', href: '/design#start-fp' },
-          { title: 'Import Existing System', href: '/design#import-existing' },
-          { title: 'Draw Existing System', href: '/design#draw-existing' },
           { title: 'Import RCP', href: '/design#import-rcp' },
           { title: 'Clean RCP', href: '/design#clean-rcp' },
+          { title: 'Import Existing System', href: '/design#import-existing' },
+          { title: 'Draw Existing System', href: '/design#draw-existing' },
           { title: 'Copy Existing System', href: '/design#copy-existing' },
           { title: 'Create Layout', href: '/design#create-layout' },
         ],
@@ -267,4 +267,3 @@ export function AppSidebar() {
     </Sidebar>
   )
 }
-

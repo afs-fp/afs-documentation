@@ -85,52 +85,80 @@ const Design: NextPage = () => {
     },
   ]
 
-  const ImportExistingSystem: CardData[] = [
+  const ImportExistingSystem: CardData2[] = [
     {
       gifUrl: `${baseURL}/img/design/switch-to-model.png`,
       number: '01',
       title: 'Step 1: Switch to model space',
+      description: `
+      `,
     },
     {
       gifUrl: `${baseURL}/img/design/insert-pdf.png`,
       number: '02',
       title: 'Step 2: Insert PDF Underlay',
+      description: `
+      `,
     },
     {
       gifUrl: `${baseURL}/img/design/find-pdf.png`,
       number: '03',
       title: 'Step 3: Find and open the PDF you downloaded from procore',
+      description: `
+      `,
     },
     {
       gifUrl: `${baseURL}/img/design/default-settings.png`,
       number: '04',
-      title: 'Step 4: Use these defautl settings and click Ok',
+      title: 'Step 4: Use these default settings and click Ok',
+      description: `
+      `,
     },
     {
       gifUrl: `${baseURL}/img/design/click-insert.png`,
       number: '05',
       title: 'Step 5: Specify location and insert',
+      description: `
+      `,
     },
     {
       gifUrl: `${baseURL}/gifs/design/scale-pdf.gif`,
       number: '06',
       title:
         'Step 6: Scale the PDF. Use the SC (scale) command with the number 96',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/gifs/design/verify-scale.gif`,
+      number: '07',
+      title: 'Step 7: Verify that the scale is correct',
+      description: `
+      - compare measurments between the survey and the RCP
+      - use something like columns and measure the distance between them
+      - verify that the distance is the same
+      `,
     },
     {
       gifUrl: `${baseURL}/gifs/design/move-pdf.gif`,
       number: '07',
       title: 'Step 7: Move the PDF (MOVE command) to its final location',
+      description: `
+      `,
     },
     {
       gifUrl: `${baseURL}/gifs/design/fade-pdf.gif`,
       number: '08',
       title: 'Step 8: Fade the PDF',
+      description: `
+      `,
     },
     {
       gifUrl: `${baseURL}/gifs/design/lock-pdf.gif`,
       number: '09',
       title: 'Step 9: Lock the PDF',
+      description: `
+      `,
     },
   ]
 
@@ -227,15 +255,22 @@ const Design: NextPage = () => {
       `,
     },
     {
-      gifUrl: `${baseURL}/img/design/ImportRCP/select-model.png`,
+      gifUrl: `${baseURL}/gifs/design/importRCP/unlock-unfreeze.gif`,
       number: '03',
+      title: 'Use Layer Properties to unlock and or unfreeze any layers',
+      description: `
+      `,
+    },
+    {
+      gifUrl: `${baseURL}/img/design/ImportRCP/select-model.png`,
+      number: '04',
       title: 'Select Model',
       description: `
       `,
     },
     {
       gifUrl: `${baseURL}/img/design/ImportRCP/paste-RCP.png`,
-      number: '04',
+      number: '05',
       title: 'Paste the RCP',
       description: `
       `,
@@ -248,6 +283,7 @@ const Design: NextPage = () => {
       number: '01',
       title: 'Freeze irelevant infromation from the drawing',
       description: `
+      - use LAYFRZ
       `,
     },
     {
@@ -547,25 +583,6 @@ const Design: NextPage = () => {
             />
           </div>
 
-          <h2
-            id="import-existing"
-            className="mt-8 border-b text-2xl font-semibold"
-          >
-            Import Existing System Reference
-          </h2>
-          <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
-            {renderCarousel(ImportExistingSystem)}
-          </div>
-          <h2
-            id="draw-existing"
-            className="mt-8 border-b text-2xl font-semibold"
-          >
-            Draw in the Existing System
-          </h2>
-          <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
-            {renderCarouselNotes(DrawExistingSystemCardsData)}
-          </div>
-
           <h2 id="import-rcp" className="mt-8 border-b text-2xl font-semibold">
             Import RCP
           </h2>
@@ -578,6 +595,25 @@ const Design: NextPage = () => {
           <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
             {renderCarouselNotes(CleanRCP)}
           </div>
+          <h2
+            id="import-existing"
+            className="mt-8 border-b text-2xl font-semibold"
+          >
+            Import Existing System Reference
+          </h2>
+          <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
+            {renderCarouselNotes(ImportExistingSystem)}
+          </div>
+          <h2
+            id="draw-existing"
+            className="mt-8 border-b text-2xl font-semibold"
+          >
+            Draw in the Existing System
+          </h2>
+          <div className="mt-4 flex w-full justify-center rounded-lg bg-slate-900 py-2 pl-5">
+            {renderCarouselNotes(DrawExistingSystemCardsData)}
+          </div>
+
           <h2
             id="copy-existing"
             className="mt-8 border-b text-2xl font-semibold"
