@@ -27,6 +27,14 @@ const sidebarData = [
     href: '/new-project',
     subItems: [
       {
+        title: 'Download AutoCAD',
+        href: '/initial-setup/download-autocad',
+        subItems: [
+          // { title: 'Preparation', href: '/survey#preparation' },
+          // { title: 'How to Survey', href: '/survey#how-to-survey' },
+        ],
+      },
+      {
         title: 'Set Hydracad Template',
         href: '/initial-setup/set-hyd-template',
         subItems: [
@@ -35,21 +43,29 @@ const sidebarData = [
         ],
       },
       {
-        title: 'Set Hydracad Toolbar',
-        href: '/initial-setup/set-hyd-toolbar',
+        title: 'Import Workspace',
+        href: '/initial-setup/import-workspace',
         subItems: [
           // { title: 'Preparation', href: '/survey#preparation' },
           // { title: 'How to Survey', href: '/survey#how-to-survey' },
         ],
       },
-      {
-        title: 'Setup Sidebars',
-        href: '/initial-setup/setup-sidebar',
-        subItems: [
-          // { title: 'Preparation', href: '/survey#preparation' },
-          // { title: 'How to Survey', href: '/survey#how-to-survey' },
-        ],
-      },
+      // {
+      //   title: 'Set Hydracad Toolbar',
+      //   href: '/initial-setup/set-hyd-toolbar',
+      //   subItems: [
+      //     // { title: 'Preparation', href: '/survey#preparation' },
+      //     // { title: 'How to Survey', href: '/survey#how-to-survey' },
+      //   ],
+      // },
+      // {
+      //   title: 'Setup Sidebars',
+      //   href: '/initial-setup/setup-sidebar',
+      //   subItems: [
+      //     // { title: 'Preparation', href: '/survey#preparation' },
+      //     // { title: 'How to Survey', href: '/survey#how-to-survey' },
+      //   ],
+      // },
       {
         title: 'Change Ortho',
         href: '/initial-setup/change-ortho',
@@ -74,14 +90,7 @@ const sidebarData = [
           // { title: 'How to Survey', href: '/survey#how-to-survey' },
         ],
       },
-      {
-        title: 'Download AutoCAD',
-        href: '/initial-setup/download-autocad',
-        subItems: [
-          // { title: 'Preparation', href: '/survey#preparation' },
-          // { title: 'How to Survey', href: '/survey#how-to-survey' },
-        ],
-      },
+
       // {
       //   title: 'Reccomended Hydracad Settings',
       //   href: '/survey#survey',
