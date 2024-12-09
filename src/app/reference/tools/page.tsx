@@ -12,6 +12,8 @@ const CadReference: NextPage = () => {
   const [precision, setPrecision] = useState(2) // Default precision
   const [calculatedValue, setCalculatedValue] = useState<string | null>(null)
   const [newLength, setNewLength] = useState<number | null>(null)
+  const [displayValue1, setDisplayValue1] = useState<string | null>(null)
+  const [displayValue2, setDisplayValue2] = useState<string | null>(null)
 
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
@@ -31,7 +33,15 @@ const CadReference: NextPage = () => {
       // Format inches to remove trailing zeros
       const formattedInches = parseFloat(inches)
       const formattedLength = `${feet}' - ${formattedInches}"`
+
       setCalculatedValue(formattedLength)
+      setDisplayValue2(formattedLength)
+
+      const feet2 = Math.floor((newLengthInInches * 2) / 12)
+      const inches2 = ((newLengthInInches * 2) % 12).toFixed(precision)
+      const formattedInches2 = parseFloat(inches2)
+      const formattedLength2 = `${feet2}' - ${formattedInches2}"`
+      setDisplayValue1(formattedLength2) // Distance to Wall
     } else {
       setCalculatedValue(null)
       setNewLength(null)
@@ -48,7 +58,15 @@ const CadReference: NextPage = () => {
 
       const formattedInches = parseFloat(inches)
       const formattedLength = `${feet}' - ${formattedInches}"`
+
       setCalculatedValue(formattedLength)
+      setDisplayValue1(formattedLength) // Distance to Head
+
+      const feet2 = Math.floor(newLengthInInches / 2 / 12)
+      const inches2 = ((newLengthInInches / 2) % 12).toFixed(precision)
+      const formattedInches2 = parseFloat(inches2)
+      const formattedLength2 = `${feet2}' - ${formattedInches2}"`
+      setDisplayValue2(formattedLength2) // Distance to Wall
     } else {
       setCalculatedValue(null)
       setNewLength(null)
@@ -64,8 +82,10 @@ const CadReference: NextPage = () => {
     } else {
       setCalculatedValue(null)
       setNewLength(null)
+      setDisplayValue1(null)
+      setDisplayValue2(null)
     }
-  }, [length, length2, area, precision]) // Dependencies
+  }, [length, length2, area, precision])
 
   return (
     <div className="flex w-full flex-col items-center">
@@ -150,11 +170,18 @@ const CadReference: NextPage = () => {
             className="mt-2 w-full rounded border p-2 text-black"
           />
 
-          {calculatedValue !== null && (
+          {displayValue2 !== null && (
             <div className="mt-4 text-lg font-semibold">
-              Calculated Value: {calculatedValue}
+              Distance to Other Wall: {displayValue2}
             </div>
           )}
+
+          {displayValue1 !== null && (
+            <div className="mt-4 text-lg font-semibold">
+              Distance to Other Head: {displayValue1}
+            </div>
+          )}
+
           {newLength !== null &&
             length !== null &&
             parseLength(length) !== null && (
