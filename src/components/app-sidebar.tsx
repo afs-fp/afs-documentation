@@ -125,6 +125,7 @@ const sidebarData = [
           { title: 'Import Existing System', href: '/design#import-existing' },
           { title: 'Draw Existing System', href: '/design#draw-existing' },
           { title: 'Copy Existing System', href: '/design#copy-existing' },
+          { title: 'Trim and Import Mech', href: '/design#mech' },
           { title: 'Create Layout', href: '/design#create-layout' },
         ],
       },

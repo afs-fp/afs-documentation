@@ -625,6 +625,20 @@ const Design: NextPage = () => {
             {renderCarouselNotes(CopySystem)}
           </div>
 
+          <h2 id="mech" className="mt-8 border-b text-2xl font-semibold">
+            Trim and Import Your Mechanical
+          </h2>
+          <a
+            href="https://www.youtube.com/watch?v=FB3EwP4CVhU&t=1s"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 flex w-full max-w-lg flex-col items-center overflow-hidden rounded-lg shadow-lg hover:shadow-xl"
+          >
+            <button className="mt-2 rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+              Watch on YouTube
+            </button>
+          </a>
+
           <h2
             id="create-layout"
             className="mt-8 border-b text-2xl font-semibold"
