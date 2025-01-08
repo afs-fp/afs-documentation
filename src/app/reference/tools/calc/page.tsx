@@ -102,6 +102,13 @@ const CeilingAreaCalculator: NextPage = () => {
             </div>
           )}
 
+          {areaReduction !== null && (
+            <div className="mt-4 text-lg font-semibold">
+              {(Math.sqrt(areaReduction) * 1.2).toFixed(2)} ft *{' '}
+              {(Math.sqrt(areaReduction) / 1.2).toFixed(2)} ft
+            </div>
+          )}
+
           {/* Additional Information */}
           <div className="text-gray-600\\ mt-8 text-sm">
             <p>
