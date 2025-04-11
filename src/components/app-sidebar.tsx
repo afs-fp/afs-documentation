@@ -199,6 +199,7 @@ const sidebarData = [
         subItems: [
           { title: 'OH Spacing Helper', href: '/reference/tools#oh-helper' },
           { title: 'Area Reduction', href: '/reference/tools/calc' },
+          { title: 'Scale Helper', href: '/reference/tools/scale' },
         ],
       },
       // {
